@@ -2,9 +2,10 @@
 \chapter{Resultados de comandos}\label{cap_exemplos}
 % ----------------------------------------------------------
 
-\chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma
-normatização a respeito desse tipo de resumo, que é mais comum em romances 
-e livros técnicos.}\index{sinopse de capítulo}
+Recomenda-se, antes de abrir uma subseção, escrever ao menos um parágrafo introdutório do capítulo.
+% \chapterprecis{Isto é uma sinopse de capítulo. A ABNT não traz nenhuma
+% normatização a respeito desse tipo de resumo, que é mais comum em romances 
+% e livros técnicos.}\index{sinopse de capítulo}
 
 % ---
 \section{Codificação dos arquivos: UTF8}
@@ -20,7 +21,8 @@ arquivos de base bibliográficas |.bib|.
 % ---
 
 \index{citações!diretas}Utilize o ambiente \texttt{citacao} para incluir
-citações diretas com mais de três linhas:
+citações diretas com mais de três linhas: 
+% O comando \index envia a 'palavra-chave' para o índice remissivo
 
 \begin{citacao}
 As citações diretas, no texto, com mais de três linhas, devem ser
@@ -33,8 +35,8 @@ Use o ambiente assim:
 
 \begin{verbatim}
 \begin{citacao}
-As citações diretas, no texto, com mais de três linhas [...] deve-se observar
-apenas o recuo \cite[5.3]{NBR10520:2002}.
+As citações diretas, no texto, com mais de três linhas [...]
+deve-se observar apenas o recuo \cite[5.3]{NBR10520:2002}.
 \end{citacao}
 \end{verbatim}
 
@@ -56,7 +58,7 @@ Text in English language in italic with correct hyphenation.
 \end{citacao}
 
 \index{citações!simples}Citações simples, com até três linhas, devem ser
-incluídas com aspas. Observe que em \LaTeX as aspas iniciais são diferentes das
+incluídas com aspas. Observe que em \LaTeX~as aspas iniciais são diferentes das
 finais: ``Amor é fogo que arde sem se ver''.
 
 % ---
@@ -220,7 +222,7 @@ com tamanhos e posições controladas. Veja o exemplo da
   \begin{minipage}{0.4\textwidth}
     \centering
     \includegraphics[scale=0.2]{fraturas.pdf}
-    \caption{Grafico 2 da minipage} \label{fig_minipage_grafico2}
+    \caption{Gráfico 2 da minipage} \label{fig_minipage_grafico2}
   \end{minipage}
 \end{figure}
 
@@ -330,7 +332,6 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
   \item Última alínea com \emph{ênfase}.
   
 \end{alineas}
-
 % ---
 \section{Espaçamento entre parágrafos e linhas}
 % ---
@@ -339,18 +340,10 @@ subdividida em alíneas \cite[4.2]{NBR6024:2012}:
 e o início da frase do parágrafo, é definido por:
 
 \begin{verbatim}
-   \setlength{\parindent}{1.3cm}
+   \setlength{\parindent}{0cm}
+   % (definição do PPGEC)
 \end{verbatim}
 
-\index{espaçamento!do primeiro parágrafo}Por padrão, não há espaçamento no
-primeiro parágrafo de cada início de divisão do documento
-(\autoref{sec-divisoes}). Porém, você pode definir que o primeiro parágrafo
-também seja indentado, como é o caso deste documento. Para isso, apenas inclua o
-pacote \textsf{indentfirst} no preâmbulo do documento:
-
-\begin{verbatim}
-   \usepackage{indentfirst}      % Indenta o primeiro parágrafo de cada seção.
-\end{verbatim}
 
 \index{espaçamento!entre os parágrafos}O espaçamento entre um parágrafo e outro
 pode ser controlado por meio do comando:
@@ -392,13 +385,15 @@ de modo que cada arquivo incluído fique em uma página diferente, utilize o
 comando:
 
 \begin{verbatim}
-   \include{documento-a-ser-incluido}      % sem a extensão .tex
+   \include{documento-a-ser-incluido}
+   % sem a extensão .tex
 \end{verbatim}
 
 Para incluir documentos sem quebra de páginas, utilize:
 
 \begin{verbatim}
-   \input{documento-a-ser-incluido}      % sem a extensão .tex
+   \input{documento-a-ser-incluido}
+   % sem a extensão .tex
 \end{verbatim}
 
 % ---
@@ -419,7 +414,8 @@ comandos, que devem ser digitados no \emph{Prompt de Comandos} do Windows ou no
    pdflatex ARQUIVO_PRINCIPAL.tex
    bibtex ARQUIVO_PRINCIPAL.aux
    makeindex ARQUIVO_PRINCIPAL.idx 
-   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o ARQUIVO_PRINCIPAL.nls
+   makeindex ARQUIVO_PRINCIPAL.nlo -s nomencl.ist -o
+   ARQUIVO_PRINCIPAL.nls
    pdflatex ARQUIVO_PRINCIPAL.tex
    pdflatex ARQUIVO_PRINCIPAL.tex
 \end{verbatim}
@@ -441,15 +437,16 @@ seções, subseções e subsubseções.
 O código usado para produzir o texto desta seção é:
 
 \begin{verbatim}
-Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo}, apresentamos um
-exemplo de remissão interna, que também pode ser feita quando indicamos o
-\autoref{cap_exemplos}, que tem o nome \emph{\nameref{cap_exemplos}}. O número
-do capítulo indicado é \ref{cap_exemplos}, que se inicia à
-\autopageref{cap_exemplos}\footnote{O número da página de uma remissão pode ser
-obtida também assim:
-\pageref{cap_exemplos}.}.
-Veja a \autoref{sec-divisoes} para outros exemplos de remissões internas entre
-seções, subseções e subsubseções.
+Ao nomear a \autoref{tab-nivinv} e a \autoref{fig_circulo},
+apresentamos umexemplo de remissão interna, que também pode
+ser feita quando indicamos o \autoref{cap_exemplos}, que tem
+o nome \emph{\nameref{cap_exemplos}}. O número do capítulo
+indicado é \ref{cap_exemplos}, que se inicia à
+\autopageref{cap_exemplos}\footnote{O número da página de uma
+remissão pode ser obtida também assim:
+\pageref{cap_exemplos}.}. Veja a \autoref{sec-divisoes}
+para outros exemplos de remissões internas entre seções,
+subseções e subsubseções.
 \end{verbatim}
 
 % ---
@@ -504,7 +501,8 @@ Este é um exemplo de parágrafo nomeado. Ele é produzida com o comando de
 parágrafo:
 
 \begin{verbatim}
-\paragraph{Este é um parágrafo nomeado}\label{sec-exemplo-paragrafo}
+\paragraph{Este é um parágrafo
+nomeado}\label{sec-exemplo-paragrafo}
 \end{verbatim}
 
 A numeração entre parágrafos numeradaos e subsubsubseções são contínuas.
@@ -689,9 +687,8 @@ desenvolvimento e de várias outras formas. Veja como contribuir com o \abnTeX\
 em \url{https://github.com/abntex/abntex2/wiki/Como-Contribuir}.
 
 % ---
-\section{Quer customizar os modelos do \abnTeX\ para sua instituição ou
-universidade?}
+\section{Quer ajudar a customizar os modelos do \abnTeX\ para o PPGEC-UFRGS?}
 % ---
 
-Veja como customizar o \abnTeX\ em:
+Me ajude reportando erros e otimizações na customização\footnote{me manda um e-mail: augusto.borges@ufrgs.br} e, se quiser ir além, veja como customizar o \abnTeX\ em:
 \url{https://github.com/abntex/abntex2/wiki/ComoCustomizar}.

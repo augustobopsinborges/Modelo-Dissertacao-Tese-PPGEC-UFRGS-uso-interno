@@ -1,0 +1,61 @@
+% ---
+% Pacotes básicos
+% ---
+\usepackage{times}		  	    % Usa a fonte Times apenas para texto - usar:
+\usepackage{mathptmx}         % para times tbm nas equações
+\usepackage[T1,LGRx,T1]{fontenc}  		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{color}			    	% Controle das cores
+\usepackage{graphicx}		    	% Inclusão de gráficos
+\graphicspath{{./figuras/}}   % Caminho para a pasta que contém os arquivos das Figuras
+\usepackage{microtype} 		  	% para melhorias de justificação
+\usepackage{fancyhdr}
+\usepackage{amssymb,amsmath,amsfonts,textcomp,bm}
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+
+% ---
+% Incluído por Augusto B. Borges
+% ---
+\usepackage{caption}
+% Tabelas
+\usepackage{array}								% Elementos extras para formatação de tabelas
+\usepackage{booktabs}							% Tabelas com qualidade de publicação
+\usepackage{longtable}							% Para criar tabelas maiores que uma página
+\usepackage{lscape}								% adicionar tabelas e figuras como landscape
+% Notas de rodapé
+\usepackage{footnote}							% Lidar com notas de rodapé em diversas situações
+\makesavenoteenv{tabular}						% Notas criadas nas tabelas ficam no fim das tabelas
+
+% ---
+% CONFIGURAÇÕES DE PACOTES
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---

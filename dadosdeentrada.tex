@@ -1,0 +1,130 @@
+% ----------------------------------------------------------
+% Informações do Aluno e outros dados 
+% ----------------------------------------------------------
+
+\titulo{Título Completo da Dissertação ou Tese}
+\autor{Fulano de Tal}
+\newcommand{\citarautor}{Tal, F. D.}
+\newcommand{\emailautor}{fulano.de.tal@ufrgs.br}
+\local{Porto Alegre}
+\data{201X}
+\newcommand{\datacompleta}{[dia] de [mês] de 201X}
+\orientador{Nome do Orientador}
+\newcommand{\titorientador}{Dr. pela Universidade de Origem}
+%\coorientador{Equipe \abnTeX}
+\instituicao{Universidade Federal do Rio Grande do Sul}
+\newcommand{\abrevinstituicao}{UFRGS}
+\newcommand{\escola}{Escola de Engenharia}
+\newcommand{\ppg}{Programa de Pós-Graduação em Engenharia Civil}
+\newcommand{\abrevppg}{PPGEC}
+\tipotrabalho{Tese de Doutorado}
+\newcommand{\tipotrabalhocurto}{Tese}
+\newcommand{\cursorealizado}{Doutorado em Engenharia}
+\newcommand{\tituloobtido}{Doutor em Engenharia}
+\newcommand{\areaconcentracao}{Geotecnia}
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
+\preambulo{\imprimirtipotrabalho~apresentada ao \ppg~da \imprimirinstituicao~como parte dos requisitos para obtenção do título de \tituloobtido.}
+
+% Dados do coordenador do curso
+\newcommand{\coordenador}{Nilo Consoli}
+\newcommand{\titcoordenador}{Ph.D. pela Concordia University, Canadá}
+
+% Membros da Banca e titulação
+\newcommand{\tratbancaum}{Prof.}
+\newcommand{\bancaum}{Luís Carlos Prestes}
+\newcommand{\origembancaum}{UFRGS}
+\newcommand{\titbancaum}{Ph.D. pela Universidade de Origem, País}
+
+\newcommand{\tratbancadois}{Prof.}
+\newcommand{\bancadois}{Leonel de Moura Brizola}
+\newcommand{\origembancadois}{UFRGS}
+\newcommand{\titbancadois}{Dr. pela Universidade Federal do Rio Grande do Sul}
+
+\newcommand{\tratbancatres}{Prof.}
+\newcommand{\bancatres}{Getúlio Vargas}
+\newcommand{\origembancatres}{UFRGS}
+\newcommand{\titbancatres}{Dr. pela Universidade Federal do Rio Grande do Sul}
+
+\newcommand{\tratbancaquatro}{Profa.}
+\newcommand{\bancaquatro}{Anita Garibaldi}
+\newcommand{\origembancaquatro}{UFSC}
+\newcommand{\titbancaquatro}{Dra. pela Universidade Federal de Santa Catarina}
+% ---
+
+
+% NÃO MEXER DAQUI PARA BAIXO
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,       	% color of internal links
+    	citecolor=black,     		% color of links to bibliography
+    	filecolor=black,     		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% ---
+
+% ---
+% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
+% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+\makeatletter
+\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\makeatother
+% ---
+
+% ---
+% Possibilita criação de Quadros e Lista de quadros.
+% Ver https://github.com/abntex/abntex2/issues/176
+%
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+% ---
+
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+\OnehalfSpacing % Definição do PPGEC-UFRGS
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{0cm} % Definição do PPGEC-UFRGS
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.42336cm} % este é o espaçamento no modelo PPGEC, equivalente a 12pt (1pt = 0,03528cm)
+% tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
