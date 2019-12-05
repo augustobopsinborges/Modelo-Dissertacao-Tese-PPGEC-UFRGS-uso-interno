@@ -2,4 +2,4 @@
 
 **Arquivo principal**: main.tex
 
-**Arquivos a serem editados pelo usuário**: *dadosdeentrada.tex* (informações do aluno) e *pretextual.tex* (dedicatória, agradecimentos, epígrafe, resumos, lista de abreviaturas e siglas, lista de símbolos) 
+**Arquivos a serem editados pelo usuário, além do texto do trabalho**: *dadosdeentrada.tex* (informações do aluno) e *pretextual.tex* (dedicatória, agradecimentos, epígrafe, resumos, lista de abreviaturas e siglas, lista de símbolos) 
