@@ -100,9 +100,14 @@
 \local{Porto Alegre}
 \data{201X}
 \newcommand{\datacompleta}{[dia] de [mês] de 201X}
-\orientador{Nome do Orientador}
+\orientador{Karl von Terzaghi}
 \newcommand{\titorientador}{Dr. pela Universidade de Origem}
-%\coorientador{Equipe \abnTeX}
+% -----------------------------
+% Se possuir orientador e coorientador, tire do comentário a parte abaixo e preencha-a (caso contrário, deixe como comentário):
+% -----------------------------
+\coorientador{Stephen Timoshenko}
+\newcommand{\titcoorientador}{Dr. pela Universidade de Origem}
+% -----------------------------
 \instituicao{Universidade Federal do Rio Grande do Sul}
 \newcommand{\abrevinstituicao}{UFRGS}
 \newcommand{\escola}{Escola de Engenharia}
@@ -130,12 +135,12 @@
 \newcommand{\tratbancadois}{Prof.}
 \newcommand{\bancadois}{Leonel de Moura Brizola}
 \newcommand{\origembancadois}{UFRGS}
-\newcommand{\titbancadois}{Dr. pela Universidade Federal do Rio Grande do Sul}
+\newcommand{\titbancadois}{Dr. pela~\imprimirinstituicao}
 
 \newcommand{\tratbancatres}{Prof.}
 \newcommand{\bancatres}{Getúlio Vargas}
 \newcommand{\origembancatres}{UFRGS}
-\newcommand{\titbancatres}{Dr. pela Universidade Federal do Rio Grande do Sul}
+\newcommand{\titbancatres}{Dr. pela~\imprimirinstituicao}
 
 \newcommand{\tratbancaquatro}{Profa.}
 \newcommand{\bancaquatro}{Anita Garibaldi}
@@ -297,28 +302,51 @@
       \OnehalfSpacing{\ABNTEXchapterfont\bfseries\Large\MakeUppercase{\imprimirtitulo}}
     \end{center}
     \vspace*{\fill}
-    \OnehalfSpacing{Esta \MakeTextLowercase{\imprimirtipotrabalho} foi julgada adequada para a obtenção do título de \MakeUppercase{\tituloobtido}, na área de concentração \areaconcentracao, e aprovada em sua forma final pelo professor orientador e pelo Programa de Pós-Graduação em Engenharia Civil da Universidade Federal do Rio Grande do Sul.}
+    \OnehalfSpacing{Esta \MakeTextLowercase{\imprimirtipotrabalho} foi julgada adequada para a obtenção do título de \MakeUppercase{\tituloobtido}, na área de concentração \areaconcentracao, e aprovada em sua forma final pelo professor orientador e pelo \ppg~da \imprimirinstituicao.}
     % melhorar o espaçamento entre linhas dessa parte
-    \vspace*{36pt}
+    \vspace*{20pt}
    \end{center}
     \begin{center}
     \imprimirlocal, \datacompleta
     \end{center}
-
+    \vspace*{20pt}
     \begin{flushright}
 
+% -----------------------------
+% Se possuir orientador e coorientador, tire do comentário a parte abaixo (caso contrário, deixe como comentário):
+% -----------------------------
+    \begin{minipage}{0.52\textwidth}
+    \begin{flushright}
     Prof. \imprimirorientador \\ \titorientador \\ Orientador
     \vspace{7mm}
+    \end{flushright}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.47\textwidth}
+    \begin{flushright}
+    Prof. \imprimircoorientador \\ \titcoorientador \\ Coorientador
+    \vspace{7mm}
+    \end{flushright}
+    \end{minipage}
+% -----------------------------
+% 
+% -----------------------------
+% Se possuir apenas orientador, tire do comentário a parte abaixo (caso contrário, deixe como comentário):
+% -----------------------------
+    % Prof. \imprimirorientador \\ \titorientador \\ Orientador
+    % \vspace{7mm}
+% -----------------------------
+    \vspace*{20pt}
     \\ Prof. \coordenador \\ \titcoordenador \\ Coordenador do \abrevppg/\abrevinstituicao
     \vspace{5mm}
     \\ \textbf{\MakeUppercase{Banca Examinadora}}
-    \vspace{5mm}
+    \vspace{20pt}
     \\ \textbf{\tratbancaum~\bancaum~(\origembancaum)} \\ \titbancaum
-    \vspace{5mm}
+    \vspace{20pt}
     \\ \textbf{\tratbancadois~\bancadois~(\origembancadois)} \\ \titbancadois
-    \vspace{5mm}
+    \vspace{20pt}
     \\ \textbf{\tratbancatres~\bancatres~(\origembancatres)} \\ \titbancatres
-    \vspace{5mm}
+    \vspace{20pt}
     \\ \textbf{\tratbancaquatro~\bancaquatro~(\origembancaquatro)} \\ \titbancaquatro
 
     \end{flushright}
@@ -377,7 +405,7 @@ contribuirão para a evolução do \abnTeX.
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
 
- \SingleSpacing{\citarautor~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
+ \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
 
  Segundo a NBR6028:2003, o resumo deve ressaltar o
  objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
@@ -394,7 +422,7 @@ contribuirão para a evolução do \abnTeX.
 % resumo em inglês
 \begin{resumo}[Abstract]
 
- \SingleSpacing{\citarautor~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
+ \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
 
  \begin{otherlanguage*}{english}
    This is the english abstract.
@@ -408,6 +436,7 @@ contribuirão para a evolução do \abnTeX.
 
 % resumo em francês
 %\begin{resumo}[Résumé]
+%  \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
 % \begin{otherlanguage*}{french}
 %    Il s'agit d'un résumé en français.
 %
@@ -417,6 +446,7 @@ contribuirão para a evolução do \abnTeX.
 %
 % resumo em espanhol
 %\begin{resumo}[Resumen]
+%  \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
 % \begin{otherlanguage*}{spanish}
 %   Este es el resumen en español.
 %
