@@ -11,13 +11,11 @@
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão em em apenas um lado. Oposto a twoside (impressão em frente e verso)
+	twoside,			% use "oneside" para impressão em em apenas um lado; use "twoside" para impressão em frente e verso.
 	a4paper,			% tamanho do papel.
 	% -- opções da classe abntex2 --
 	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
 	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
 	french,				% idioma adicional para hifenização
@@ -101,12 +99,12 @@
 \data{201X}
 \newcommand{\datacompleta}{[dia] de [mês] de 201X}
 \orientador{Karl von Terzaghi}
-\newcommand{\titorientador}{Dr. pela Universidade de Origem}
+\newcommand{\titorientador}{Dr. pela Universidade de Geotecnia}
 % -----------------------------
-% Se possuir orientador e coorientador, tire do comentário a parte abaixo e preencha-a (caso contrário, deixe como comentário):
+% Se possuir coorientador, preencha o campo abaixo:
 % -----------------------------
 \coorientador{Stephen Timoshenko}
-\newcommand{\titcoorientador}{Dr. pela Universidade de Origem}
+\newcommand{\titcoorientador}{Dr. pela Universidade de Estruturas}
 % -----------------------------
 \instituicao{Universidade Federal do Rio Grande do Sul}
 \newcommand{\abrevinstituicao}{UFRGS}
@@ -354,8 +352,8 @@
     \vspace*{\fill}
     \vspace*{\fill}
 
-
   \end{folhadeaprovacao}
+  
 % ---
 % Dedicatória
 % ---
@@ -366,6 +364,7 @@
 		quando pequenas, sonharam em se tornar cientistas.
 	\end{flushright}
 \end{dedicatoria}
+
 % ---
 % Agradecimentos
 % ---
@@ -385,6 +384,7 @@ novos voluntários do grupo
 contribuirão para a evolução do \abnTeX.
 
 \end{agradecimentos}
+
 % ---
 % Epígrafe
 % ---
@@ -398,6 +398,7 @@ contribuirão para a evolução do \abnTeX.
 		\textit{Grande Sertão: Veredas -- Guimarães Rosa}
 	\end{flushright}
 \end{epigrafe}
+
 % ---
 % RESUMOS
 % ---
@@ -592,7 +593,7 @@ contribuirão para a evolução do \abnTeX.
 % Imprime uma página indicando o início dos anexos
 \partanexos
 
-\includepdf[pages={1-4}]{LaTeX_symbols}
+\includepdf[pages={1-4}]{latex_symbols}
 
 % ---
 %\chapter{Morbi ultrices rutrum lorem.}
