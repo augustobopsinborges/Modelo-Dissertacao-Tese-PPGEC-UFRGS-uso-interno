@@ -133,27 +133,3 @@
 \renewcommand{\ABNTEXsectionfont}{\fontfamily{ptm}\selectfont}
 \renewcommand{\ABNTEXsectionfontsize}{\large}
 % ---
-
-
-%% criar um novo estilo de cabeçalhos e rodapés
-
-
-% \makepagestyle{cab-rod_ppgec}
-  %%cabeçalhos
-%   \makeevenhead{cab-rod_ppgec} %%pagina par
-    %  {\small{\thepage}}
-    %  {\empty}
-    %  {\empty}
-%   \makeoddhead{cab-rod_ppgec} %%pagina ímpar ou com oneside
-    %  {\empty}
-    %  {\empty}
-    %  {\small{\thepage}}
-
-    %  \makeevenfoot{cab-rod_ppgec}
-    %  {\empty} %%pagina par
-    %  {\small{\imprimirtitulo}}
-    %  {\empty}
-%   \makeoddfoot{cab-rod_ppgec} %%pagina ímpar ou com oneside
-    %  {\empty}
-    %  {\small{\imprimirautor\textrm{~}(augusto.borges@ufrgs.br) Tese de Doutorado. PPGEC/UFRGS. \imprimirdata.}}
-    %  {\empty}
