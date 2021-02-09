@@ -11,7 +11,8 @@
 %					Felipe Pinto da Motta Quevedo (00152604@ufrgs.br)
 %
 %
-%		Versão:		2.0 (Última atualização em: 08/02/2021)
+%		Versão:		2.0 (Upload em: 08/02/2021) -- atualização e organização com base na primeira versão de 2019
+%					2.1 (Upload em: 09/02/2021) -- correções de pequenas detalhes da versão 2.0
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -58,7 +59,7 @@
 %			sp			: espanhol
 %
 %
-\documentclass[doutorado,estrutura,en]{ppgec}
+\documentclass[doutorado,estrutura,pt]{ppgec}
 %	
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -101,6 +102,8 @@
 \include{./chap/cap3}		% Capítulo 3: Nome
 \include{./chap/cap4}		% Capítulo 4: Nome
 \include{./chap/cap5}		% Capítulo 5: Nome
+%\include{./chap/cap6}		% Capítulo 6: Nome
+%\include{./chap/cap7}		% Capítulo 7: Nome
 %
 % Carrega configuração dos elementos pós textuais
 \postextualconfig
@@ -109,19 +112,22 @@
 \bibliography{./bib/referencias}
 %
 % Imprimir apêndices
+% Comente os comandos abaixo na ausência de apêndices
 \imprimircapaapendices
 \include{./pos/apeA}	
 \include{./pos/apeB}
 \include{./pos/apeC}
 %
 % Imprimir anexos
+% Comente os comandos abaixo na ausência de anexos
 \imprimircapaanexos
 \include{./pos/aneA}	
 \include{./pos/aneB}
 \include{./pos/aneC}
 %
 % Imprimir anexos em pdf: \imprimiranexopdf{nome do arquivo}{título do anexo}{primeirapagina}{proximaspaginas}
-\imprimiranexopdf{./pos/latex_symbols}{Anexo D - Símbolos matemáticos}{1}{2-}
+% Comente oo comando abaixo para remover páginas com símbolos em latex
+\imprimiranexopdf{./pos/latex_symbols}{Símbolos matemáticos}{1}{2-}
 %
 %
 \end{document}

@@ -289,6 +289,11 @@
 % Lista de figuras e tabelas com número do capítulo
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
+
+%Melhora o espaçamento da numeração na lista de figuras e tabelas
+\setlength{\cftfigurenumwidth}{3em}
+\setlength{\cfttablenumwidth}{3em}
+
 %
 % Redefine fonte e tamanho dos títulos de Capítulos e Seções
 \renewcommand{\ABNTEXchapterfont}{\fontfamily{ptm}\fontseries{b}\selectfont}
@@ -297,14 +302,14 @@
 \renewcommand{\ABNTEXsectionfontsize}{\large}
 %
 % Espaçamento entre título e texto
-\setlength\beforechapskip{12pt}
-\setlength\afterchapskip{24pt}
-\setlength\beforesecskip{24pt}
-\setlength\aftersecskip{12pt}
-\setlength\beforesubsecskip{6pt+\onelineskip}
-\setlength\aftersubsecskip{6pt}
+\setlength\beforechapskip{12pt+3pt}
+\setlength\afterchapskip{24pt-6pt}
+\setlength\beforesecskip{24pt+12pt}
+\setlength\aftersecskip{12pt+6pt}
+\setlength\beforesubsecskip{6pt+\onelineskip-2pt}
+\setlength\aftersubsecskip{6pt+4pt}
 \setlength\beforesubsubsecskip{6pt+\onelineskip}
-\setlength\aftersubsubsecskip{6pt}
+\setlength\aftersubsubsecskip{6pt+3pt}
 %
 % Espaçamento listas de figuras e tabelas
 \setlength\cftbeforefigureskip{12pt}
@@ -312,7 +317,7 @@
 %
 % Outras formatações
 \setlength{\parindent}{0cm}			% tamanho da identação
-\setlength{\parskip}{0.42336cm} 	% espaçamento entre parágrafos
+\setlength{\parskip}{12pt+3pt} 	% espaçamento entre parágrafos
 \captionsetup{width=0.75\textwidth} % padroniza largura da legenda das figuras e tabelas
 %
 % Retira espaço obsoleto entre as frases
@@ -364,6 +369,7 @@
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 \setfloatlocations{quadro}{hbtp}
 \counterwithin{quadro}{chapter}
+\setlength{\cftquadronumwidth}{3em}
 %
 % Formatação de notas em tabelas (no fim das tabelas)
 \makesavenoteenv{tabular}
@@ -427,14 +433,15 @@
 	%
 	%
 	% Edita as opções do autoref
-	\def\chapterautorefname{capítulo}
-	\def\sectionautorefname{seção}
-	\def\subsectionautorefname{subseção}
-	\def\subsubsectionautorefname{subsubseção}
-	\def\figureautorefname{figura}
-	\def\tableautorefname{tabela}
-	\def\quadroautorefname{quadro}
-	\def\pageautorefname{página}
+	\def\chapterautorefname{Capítulo}
+	\def\sectionautorefname{Seção}
+	\def\subsectionautorefname{Subseção}
+	\def\subsubsectionautorefname{Subsubseção}
+	\def\figureautorefname{Figura}
+	\def\tableautorefname{Tabela}
+	\def\quadroautorefname{Quadro}
+	\def\pageautorefname{Página}
+	\def\equationautorefname{Equação}
 	%
 	%
 	% Muda os labels das figuras e tabelas para o idioma escolhido
@@ -545,14 +552,15 @@
 	%
 	%
 	% Edita as opções do autoref
-	\def\chapterautorefname{capítulo}
-	\def\sectionautorefname{sección}
-	\def\subsectionautorefname{subsección}
-	\def\subsubsectionautorefname{subsubsección}
-	\def\figureautorefname{figura}
-	\def\tableautorefname{tabla}
-	\def\quadroautorefname{cuadro}
-	\def\pageautorefname{página}	
+	\def\chapterautorefname{Capítulo}
+	\def\sectionautorefname{Sección}
+	\def\subsectionautorefname{Subsección}
+	\def\subsubsectionautorefname{Subsubsección}
+	\def\figureautorefname{Figura}
+	\def\tableautorefname{Tabla}
+	\def\quadroautorefname{Cuadro}
+	\def\pageautorefname{Página}
+	\def\equationautorefname{Ecuación}	
 	%	
 	% Muda os labels das figuras e tabelas para o idioma escolhido
 	\addto\captionsbrazil{\renewcommand{\figurename}{Figura}}
@@ -657,14 +665,15 @@
 	\selectlanguage{english}
 	%
 	% Edita as opções do autoref
-	\def\chapterautorefname{chapter}
-	\def\sectionautorefname{section}
-	\def\subsectionautorefname{subsection}
-	\def\subsubsectionautorefname{subsubsection}
-	\def\figureautorefname{figure}
-	\def\tableautorefname{table}
-	\def\quadroautorefname{chart}
-	\def\pageautorefname{page}	
+	\def\chapterautorefname{Chapter}
+	\def\sectionautorefname{Section}
+	\def\subsectionautorefname{Subsection}
+	\def\subsubsectionautorefname{Subsubsection}
+	\def\figureautorefname{Figure}
+	\def\tableautorefname{Table}
+	\def\quadroautorefname{Chart}
+	\def\pageautorefname{Page}	
+	\def\equationautorefname{Equation}
 	%	
 	% Muda os labels das figuras e tabelas para o idioma escolhido
 	\addto\captionsbrazil{\renewcommand{\figurename}{Figure}}
@@ -791,11 +800,11 @@
 		\end{center}
 		\vspace*{\fill}
 		\if \vardoctype 3 
-			\txttextofolhaderostoquali
+		\txttextofolhaderostoquali
 		\else \if \vardoctype 2
-			\txttextofolhaderostoquali
+		\txttextofolhaderostoquali
 		\else
-			\txttextofolhaderosto	
+		\txttextofolhaderosto	
 		\fi \fi
 		% melhorar o espaçamento entre linhas dessa parte
 		\vspace*{20pt}
@@ -805,61 +814,91 @@
 	\end{center}
 	\vspace*{20pt}
 	\begin{flushright}
-
-\IfStrEq{\possuicoorientador}{SIM}{
-	\begin{minipage}{0.52\textwidth}
-		\begin{flushright}
+		
+		\IfStrEq{\possuicoorientador}{SIM}{
+			\begin{minipage}{0.52\textwidth}
+				\begin{flushright}
+					\imprimirorientador \\ \titorientador \\ \txtorientador
+					\vspace{7mm}
+				\end{flushright}
+			\end{minipage}
+			\hfill
+			\begin{minipage}{0.47\textwidth}
+				\begin{flushright}
+					\imprimircoorientador \\ \titcoorientador \\ \txtcoorientador
+					\vspace{7mm}
+				\end{flushright}
+		\end{minipage}}{
 			\imprimirorientador \\ \titorientador \\ \txtorientador
-			\vspace{7mm}
-		\end{flushright}
-	\end{minipage}
-	\hfill
-	\begin{minipage}{0.47\textwidth}
-		\begin{flushright}
-			\imprimircoorientador \\ \titcoorientador \\ \txtcoorientador
-			\vspace{7mm}
-		\end{flushright}
-	\end{minipage}}{
-	\imprimirorientador \\ \titorientador \\ \txtorientador
-	\vspace{7mm}}
-	%	
-	\vspace*{20pt}
-	\\ \coordenador \\ \titcoordenador \\ \txtcoordenadordo~ \abrevppg/\abrevinstituicao
-	\vspace{5mm}
-	%
-	\\ \textbf{\MakeUppercase{\txtbancaexaminadora}}
-	\vspace{20pt}
-	%
-	\if \membrosbanca 1 
-		\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{15pt}
-	\else \if \membrosbanca 2
-		\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{15pt}
-		\\ \textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{15pt}
-	\else \if \membrosbanca 3
-		\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{15pt}
-		\\ \textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{15pt}
-		\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{15pt}	
-	\else \if \membrosbanca 4
-		\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{15pt}
-		\\ \textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{15pt}
-		\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{15pt}	
-		\\ \textbf{\gettext{10}~(\gettext{11})} \\ \gettext{12} \vspace{15pt}		
-	\else \if \membrosbanca 5
-		\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{15pt}
-		\\ \textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{15pt}
-		\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{15pt}	
-		\\ \textbf{\gettext{10}~(\gettext{11})} \\ \gettext{12} \vspace{15pt}
-		\\ \textbf{\gettext{13}~(\gettext{14})} \\ \gettext{15} \vspace{15pt}
-	\else \if \membrosbanca 6
-		\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{15pt}
-		\\ \textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{15pt}
-		\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{15pt}	
-		\\ \textbf{\gettext{10}~(\gettext{11})} \\ \gettext{12} \vspace{15pt}
-		\\ \textbf{\gettext{13}~(\gettext{14})} \\ \gettext{15} \vspace{15pt}
-		\\ \textbf{\gettext{16}~(\gettext{17})} \\ \gettext{18} \vspace{15pt}
-	\else
-	\fi \fi \fi \fi \fi \fi
-	%	
+			\vspace{7mm}}
+		%	
+		\vspace*{20pt}
+		\\ \coordenador \\ \titcoordenador \\ \txtcoordenadordo~ \abrevppg/\abrevinstituicao
+		\vspace{36pt}
+		%
+		\\ \textbf{\MakeUppercase{\txtbancaexaminadora}}
+		\vspace{36pt}
+		%
+		\if \membrosbanca 1 
+			\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{20pt}
+		\else \if \membrosbanca 2
+			\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{20pt}
+			\\ \textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{20pt}
+		\else \if \membrosbanca 3
+			\\ \textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{20pt}
+			\\ \textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{20pt}
+			\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{20pt}	
+		\else \if \membrosbanca 4
+			\\
+			\begin{minipage}[t]{0.52\textwidth}
+				\begin{flushright}
+					\textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{20pt}
+					\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{20pt}	
+				\end{flushright}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[t]{0.47\textwidth}
+				\begin{flushright}
+					\textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{20pt}
+					\\ \textbf{\gettext{10}~(\gettext{11})} \\ \gettext{12} \vspace{20pt}
+				\end{flushright}
+			\end{minipage}		
+		\else \if \membrosbanca 5
+			\\	
+			\begin{minipage}[t]{0.52\textwidth}
+				\begin{flushright}
+					\textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{12pt}
+					\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{12pt}	
+					\\ \textbf{\gettext{13}~(\gettext{14})} \\ \gettext{15} \vspace{12pt}
+				\end{flushright}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[t]{0.47\textwidth}
+				\begin{flushright}
+					\textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{12pt}
+					\\ \textbf{\gettext{10}~(\gettext{11})} \\ \gettext{12} \vspace{12pt}
+				\end{flushright}
+			\end{minipage}	
+		\else \if \membrosbanca 6
+			\\	
+			\begin{minipage}[t]{0.52\textwidth}
+				\begin{flushright}
+					\textbf{\gettext{1}~(\gettext{2})} \\ \gettext{3} \vspace{12pt}
+					\\ \textbf{\gettext{7}~(\gettext{8})} \\ \gettext{9} \vspace{12pt}	
+					\\ \textbf{\gettext{13}~(\gettext{14})} \\ \gettext{15} \vspace{12pt}
+				\end{flushright}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[t]{0.47\textwidth}
+				\begin{flushright}
+					\textbf{\gettext{4}~(\gettext{5})} \\ \gettext{6} \vspace{12pt}
+					\\ \textbf{\gettext{10}~(\gettext{11})} \\ \gettext{12} \vspace{12pt}
+					\\ \textbf{\gettext{16}~(\gettext{17})} \\ \gettext{18} \vspace{12pt}
+				\end{flushright}
+			\end{minipage}	
+		\else
+		\fi \fi \fi \fi \fi \fi
+		%	
 	\end{flushright}
 	
 	\vspace*{\fill}
