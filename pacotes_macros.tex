@@ -1,0 +1,25 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	PACOTES_MACROS.tex 
+%  --------------------
+%
+%	Neste arquivo você pode inserir os pacotes que não tem na classe e criar
+%	suas próprias macros para utilizar no texto. Verifique se você não está
+%	utilizando um pacote que já tenha na classe ppgec.cls.
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Pacotes
+%
+\usepackage{float}	% permite posicionar a figura entre parágrafos usando H
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Macros
+%
+% Imprimir anexo pdf: \imprimiranexopdf{nome do arquivo}{título do anexo}{primeirapagina}{proximaspaginas}
+\newcommand{\imprimiranexopdf}[4]{
+	\includepdf[pages=#3,pagecommand=\chapter{#2},scale=0.92,offset=0 -95]{#1}
+	\includepdf[pages=#4,pagecommand={}]{#1}
+}

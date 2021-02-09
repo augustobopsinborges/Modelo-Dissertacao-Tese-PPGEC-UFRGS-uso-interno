@@ -1,627 +1,128 @@
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-% Elaboração das modificações para uso interno do PPGEC-UFRGS
-% Augusto Bopsin Borges (augusto.borges@ufrgs.br)
-% Versão: 09/12/2019
-% Atualização: 12/01/2021
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-
-
-\documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% use "oneside" para impressão em em apenas um lado; use "twoside" para impressão em frente e verso.
-	sumario = tradicional,          % modifica o sumário para o formato das dissertações e teses do PPGEC
-	a4paper,			% tamanho do papel.
-	% -- opções da classe abntex2 --
-	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	brazil				% o último idioma é o principal do documento
-	]{ppgec}
-
-% ---
-% Pacotes básicos
-% ---
-\usepackage{times}		  	    % Usa a fonte Times apenas para texto - usar:
-\usepackage{mathptmx}         % para times tbm nas equações
-\usepackage[T1,LGRx,T1]{fontenc}  		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}	  	% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}			    	% Controle das cores
-\usepackage{graphicx}		    	% Inclusão de gráficos
-\graphicspath{{./figuras/}}   % Caminho para a pasta que contém os arquivos das Figuras
-\usepackage{microtype} 		  	% para melhorias de justificação
-\usepackage{fancyhdr}
-\usepackage{amssymb,amsmath,amsfonts,textcomp,bm}
-\usepackage{pdfpages}
-% ---
-
-% ---
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
-\usepackage{lipsum}				% para geração de dummy text
-% ---
-
-% ---
-% Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
-
-
-% ---
-% Incluído por Augusto B. Borges
-% ---
-\usepackage[skip=1pt]{caption}
-% Tabelas
-\usepackage{array}								% Elementos extras para formatação de tabelas
-\usepackage{booktabs}							% Tabelas com qualidade de publicação
-\usepackage{longtable}							% Para criar tabelas maiores que uma página
-\usepackage{lscape}								% adicionar tabelas e figuras como landscape
-% Notas de rodapé
-\usepackage{footnote}							% Lidar com notas de rodapé em diversas situações
-\makesavenoteenv{tabular}						% Notas criadas nas tabelas ficam no fim das tabelas
-
-% ---
-% CONFIGURAÇÕES DE PACOTES
-% ---
-
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-% Define os textos da citação
-\renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
-% ---
-
-% ----------------------------------------------------------
-% Informações do Aluno e outros dados 
-% ----------------------------------------------------------
-
-\titulo{Título Completo da Dissertação ou Tese}
-\autor{Fulano de Tal}
-\newcommand{\citarautor}{Tal, F. D.}
-\newcommand{\emailautor}{fulano.de.tal@ufrgs.br}
-\local{Porto Alegre}
-\data{202X}
-\newcommand{\datacompleta}{[dia] de [mês] de 202X}
-\orientador{Karl von Terzaghi}
-\newcommand{\titorientador}{Dr. pela Universidade de Geotecnia}
-% -----------------------------
-% Se possuir coorientador, preencha o campo abaixo:
-% -----------------------------
-\coorientador{Stephen Timoshenko}
-\newcommand{\titcoorientador}{Dr. pela Universidade de Estruturas}
-% -----------------------------
-\instituicao{Universidade Federal do Rio Grande do Sul}
-\newcommand{\abrevinstituicao}{UFRGS}
-\newcommand{\escola}{Escola de Engenharia}
-\newcommand{\ppg}{Programa de Pós-Graduação em Engenharia Civil}
-\newcommand{\abrevppg}{PPGEC}
-\tipotrabalho{Tese de Doutorado}
-\newcommand{\tipotrabalhocurto}{Tese}
-\newcommand{\cursorealizado}{Doutorado em Engenharia}
-\newcommand{\tituloobtido}{Doutor em Engenharia}
-\newcommand{\areaconcentracao}{Geotecnia}
-% O preambulo deve conter o tipo do trabalho, o objetivo,
-% o nome da instituição e a área de concentração
-\preambulo{\imprimirtipotrabalho~apresentada ao \ppg~da \imprimirinstituicao~como parte dos requisitos para obtenção do título de \tituloobtido.}
-
-% Dados do coordenador do curso
-\newcommand{\coordenador}{Nilo Consoli}
-\newcommand{\titcoordenador}{Ph.D. pela Concordia University, Canadá}
-
-% Membros da Banca e titulação
-\newcommand{\tratbancaum}{Prof.}
-\newcommand{\bancaum}{Luís Carlos Prestes}
-\newcommand{\origembancaum}{UFRGS}
-\newcommand{\titbancaum}{Ph.D. pela Universidade de Origem, País}
-
-\newcommand{\tratbancadois}{Prof.}
-\newcommand{\bancadois}{Leonel de Moura Brizola}
-\newcommand{\origembancadois}{UFRGS}
-\newcommand{\titbancadois}{Dr. pela~\imprimirinstituicao}
-
-\newcommand{\tratbancatres}{Prof.}
-\newcommand{\bancatres}{Getúlio Vargas}
-\newcommand{\origembancatres}{UFRGS}
-\newcommand{\titbancatres}{Dr. pela~\imprimirinstituicao}
-
-\newcommand{\tratbancaquatro}{Profa.}
-\newcommand{\bancaquatro}{Anita Garibaldi}
-\newcommand{\origembancaquatro}{UFSC}
-\newcommand{\titbancaquatro}{Dra. pela Universidade Federal de Santa Catarina}
-% ---
-
-
-% ---
-% Configurações de aparência do PDF final
-
-% alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
-
-% informações do PDF
-\makeatletter
-\hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title},
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=black,       	% color of internal links
-    	citecolor=black,     		% color of links to bibliography
-    	filecolor=black,     		% color of file links
-		urlcolor=black,
-		bookmarksdepth=4
-}
-\makeatother
-% ---
-
-% ---
-% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
-% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
-\makeatletter
-\setlength{\@fptop}{5pt} % Set distance from top of page to first float
-\makeatother
-% ---
-
-% ---
-% Possibilita criação de Quadros e Lista de quadros.
-% Ver https://github.com/abntex/abntex2/issues/176
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\newcommand{\quadroname}{Quadro}
-\newcommand{\listofquadrosname}{Lista de quadros}
-
-\newfloat[chapter]{quadro}{loq}{\quadroname}
-\newlistof{listofquadros}{loq}{\listofquadrosname}
-\newlistentry{quadro}{loq}{0}
-
-% configurações para atender às regras da ABNT
-\setfloatadjustment{quadro}{\centering}
-\counterwithout{quadro}{chapter}
-\renewcommand{\cftquadroname}{\quadroname\space}
-\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
-
-\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
-% ---
-
-% ---
-% Espaçamentos entre linhas e parágrafos
-% ---
-\OnehalfSpacing % Definição do PPGEC-UFRGS
-% O tamanho do parágrafo é dado por:
-\setlength{\parindent}{0cm} % Definição do PPGEC-UFRGS
-
-% Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.42336cm} % este é o espaçamento no modelo PPGEC, equivalente a 12pt (1pt = 0,03528cm)
-% tente também \onelineskip
-
-% ---
-% compila o indice
-% ---
-\makeindex
-% ---
-
-% ----
-% Início do documento
-% ----
-
+%	MODELO LaTeX PARA ELABORACAO DE TESES E DISSERTACOES DO PPGEC/UFRGS 
+%  --------------------------------------------------------------------
+%
+%	Creditos
+%   --------
+%
+%		Autores:	Augusto Bopsin Borges (augusto.borges@ufrgs.br)
+%					Rodrigo Escolante Pereira (rodrigoescolante@gmail.com)
+%					Felipe Pinto da Motta Quevedo (00152604@ufrgs.br)
+%
+%
+%		Versão:		2.0 (Última atualização em: 08/02/2021)
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Instruções para incluir a ficha catalográfica
+%  ----------------------------------------------
+%
+%	Para inserção da ficha catalográfica acesse:
+%
+%	https://sabi.ufrgs.br/servicos/publicoBC/ficha.php
+%
+%	1) preencha seus dados no site
+%	2) gere o arquivo pdf
+%	3) nomeioe-o como "ficha"
+%	4) e copie-o para a pasta /pre/
+%	5) deixe descomentado o comando \imprimirficha nos elementos pré-textuais
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Opções da classe ppgec.cls
+%  ----------------------------
+%
+%		Essa classe utiliza como base a classe abnTex2.cls v-1.9.7 laurocesar
+% 		Copyright 2012-2018 by abnTeX2 group at https://www.abntex.net.br/ 
+%		
+%		Por padrao a classe ppgec.cls esta configurada para tese, dissertações e
+% 		qualificações com folha A4, tamanho de fonte 12pt e configuracao de impressao
+%		em apenas um lado da folha. Ao usuário, porém, estao disponiveis algumas 
+%		opções de configuração:
+%
+%		TIPO DE DOCUMENTO
+%			doutorado 	: opção para tese de doutorado
+%			mestrado 	: opção para dissertação de mestrado
+%			qdoutorado 	: opção para qualificação de doutorado
+%			qmestrado 	: opção para qualificação de mestrado
+%
+%		AREA DE CONCENTRAÇÃO
+%			estrutura 	: opção para área de concentração em estrutura
+%			geotecnia 	: opção para área de concentração em geotecnia
+%
+%		LINGUA
+%			pt			: português
+%			en			: inglês
+%			sp			: espanhol
+%
+%
+\documentclass[doutorado,estrutura,en]{ppgec}
+%	
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Preencha o arquivo dados.tex com os teus dados
+\include{dados}
+%
+% Carregando pacotes e macros adicionais definidas pelo usuário
+\include{pacotes_macros}
+%	
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% Iniciando o ambiente do documento
 \begin{document}
-
-% Seleciona o idioma do documento (conforme pacotes do babel)
-%\selectlanguage{english}
-\selectlanguage{brazil}
-
-% Retira espaço extra obsoleto entre as frases.
-\frenchspacing
-
-% ----------------------------------------------------------
-% ELEMENTOS PRÉ-TEXTUAIS
-% ----------------------------------------------------------
-% \pretextual
-
-% ---
-% Capa
-% ---
-\imprimircapa
-% ---
-
-% ---
-% Folha de rosto
-% (o * indica que haverá a ficha bibliográfica)
-% ---
-\imprimirfolhaderosto%*
-% ---
-% Inserir a ficha bibliografica
-% ---
-
-% ----------------------------------------------------------
-% Para inserção da ficha catalográfica acesse:
-
-% https://sabi.ufrgs.br/servicos/publicoBC/ficha.php
-
-% Preencha seus dados, gere o arquivo pdf, nomeie-o como "ficha" e copie-o no mesmo diretório do arquivo main.tex
-% ----------------------------------------------------------
-\includepdf[pages={1}]{ficha}
-
-% ---
-% Inserir errata
-% ---
-% \begin{errata}
-% Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
-% \vspace{\onelineskip}
 %
-% FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-% reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-% rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-% cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-% Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+% Elementos pré-textuais
+\imprimircapa				% obrigatório
+\imprimirfolhaderosto		% obrigatório
+\imprimirficha				% obrigatório
+\imprimirerrata				% opcional
+\imprimirfolhadeaprovacao	% obrigatório
+\imprimirdedicatoria		% opcional
+\imprimiragradecimentos		% opcional
+\imprimirepigrafe			% opcional
+\imprimirresumo				% obrigatório
+\imprimirabstract			% obrigatório
+\imprimirlistafiguras		% opcional
+\imprimirlistaquadros		% opcional
+\imprimirlistatabelas		% opcional
+\imprimirlistasiglas		% opcional
+\imprimirlistasimbolos		% opcional
+\imprimirsumario			% obrigatório
 %
-% \begin{table}[htb]
-% \center
-% \footnotesize
-% \begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-%   \hline
-%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-    % \hline
-    % 1 & 10 & auto-conclavo & autoconclavo\\
-%   \hline
-% \end{tabular}
-% \end{table}
+% Carrega configuração dos elementos textuais
+\textualconfig
 %
-% \end{errata}
-% ---
-
-% ---
-% Inserir folha de aprovação
-% ---
-\begin{folhadeaprovacao}
-
-  \begin{center}
-    {\ABNTEXchapterfont\large\MakeUppercase{\imprimirautor}}
-
-    \vspace*{\fill}
-    \begin{center}
-      \OnehalfSpacing{\ABNTEXchapterfont\bfseries\Large\MakeUppercase{\imprimirtitulo}}
-    \end{center}
-    \vspace*{\fill}
-    \OnehalfSpacing{Esta \MakeTextLowercase{\imprimirtipotrabalho} foi julgada adequada para a obtenção do título de \MakeUppercase{\tituloobtido}, na área de concentração \areaconcentracao, e aprovada em sua forma final pelo professor orientador e pelo \ppg~da \imprimirinstituicao.}
-    % melhorar o espaçamento entre linhas dessa parte
-    \vspace*{20pt}
-   \end{center}
-    \begin{center}
-    \imprimirlocal, \datacompleta
-    \end{center}
-    \vspace*{20pt}
-    \begin{flushright}
-
-% -----------------------------
-% Se possuir orientador e coorientador, tire do comentário a parte abaixo (caso contrário, deixe como comentário):
-% -----------------------------
-    \begin{minipage}{0.52\textwidth}
-    \begin{flushright}
-    Prof. \imprimirorientador \\ \titorientador \\ Orientador
-    \vspace{7mm}
-    \end{flushright}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.47\textwidth}
-    \begin{flushright}
-    Prof. \imprimircoorientador \\ \titcoorientador \\ Coorientador
-    \vspace{7mm}
-    \end{flushright}
-    \end{minipage}
-% -----------------------------
-% 
-% -----------------------------
-% Se possuir apenas orientador, tire do comentário a parte abaixo (caso contrário, deixe como comentário):
-% -----------------------------
-    % Prof. \imprimirorientador \\ \titorientador \\ Orientador
-    % \vspace{7mm}
-% -----------------------------
-    \vspace*{20pt}
-    \\ Prof. \coordenador \\ \titcoordenador \\ Coordenador do \abrevppg/\abrevinstituicao
-    \vspace{5mm}
-    \\ \textbf{\MakeUppercase{Banca Examinadora}}
-    \vspace{20pt}
-    \\ \textbf{\tratbancaum~\bancaum~(\origembancaum)} \\ \titbancaum
-    \vspace{20pt}
-    \\ \textbf{\tratbancadois~\bancadois~(\origembancadois)} \\ \titbancadois
-    \vspace{20pt}
-    \\ \textbf{\tratbancatres~\bancatres~(\origembancatres)} \\ \titbancatres
-    \vspace{20pt}
-    \\ \textbf{\tratbancaquatro~\bancaquatro~(\origembancaquatro)} \\ \titbancaquatro
-
-    \end{flushright}
-
-    \vspace*{\fill}
-    \vspace*{\fill}
-
-  \end{folhadeaprovacao}
-  
-% ---
-% Dedicatória
-% ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-	\begin{flushright}
-		Este trabalho é dedicado às crianças adultas que \\
-		quando pequenas, sonharam em se tornar cientistas.
-	\end{flushright}
-\end{dedicatoria}
-
-% ---
-% Agradecimentos
-% ---
-\begin{agradecimentos}
-Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz e todos aqueles que
-contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX\ fosse possível.
-
-Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-da Informação da Universidade de
-Brasília (CPAI), ao grupo de usuários
-\emph{latex-br} e aos
-novos voluntários do grupo
-\emph{\abnTeX}~que contribuíram e que ainda
-contribuirão para a evolução do \abnTeX.
-
-\end{agradecimentos}
-
-% ---
-% Epígrafe
-% ---
-\begin{epigrafe}
-    \vspace*{\fill}
-	\begin{flushright}
-		A gente quer passar um rio a nado, e passa; mas vai dar na \\
-		outra banda é num ponto muito mais abaixo, bem diverso \\
-		do em que primeiro se pensou. Viver nem não é muito \\
-		perigoso? \\
-		\textit{Grande Sertão: Veredas -- Guimarães Rosa}
-	\end{flushright}
-\end{epigrafe}
-
-% ---
-% RESUMOS
-% ---
-% resumo em português
-\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
-\begin{resumo}
-
- \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
-
- Segundo a NBR6028:2003, o resumo deve ressaltar o
- objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
- destes itens dependem do tipo de resumo (informativo ou indicativo) e do
- tratamento que cada item recebe no documento original. O resumo deve ser
- precedido da referência do documento, com exceção do resumo inserido no
- próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
- resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
- ponto e finalizadas também por ponto.
-
- \textbf{Palavras-chave}: \textit{latex. abntex. editoração de texto}.
-\end{resumo}
-
-% resumo em inglês
-\begin{resumo}[Abstract]
-
- \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
-
- \begin{otherlanguage*}{english}
-   This is the english abstract.
-
-   \vspace{\onelineskip}
-
-   \noindent
-   \textbf{Keywords}: \textit{latex. abntex. text editoration}.
- \end{otherlanguage*}
-\end{resumo}
-
-% resumo em francês
-%\begin{resumo}[Résumé]
-%  \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
-% \begin{otherlanguage*}{french}
-%    Il s'agit d'un résumé en français.
+% Elementos textuais: capitulos
+\include{./chap/cap1}		% Introdução
+\include{./chap/cap2}		% Capítulo 2: Nome
+\include{./chap/cap3}		% Capítulo 3: Nome
+\include{./chap/cap4}		% Capítulo 4: Nome
+\include{./chap/cap5}		% Capítulo 5: Nome
 %
-%   \textbf{Mots-clés}: latex. abntex. publication de textes.
-% \end{otherlanguage*}
-%\end{resumo}
+% Carrega configuração dos elementos pós textuais
+\postextualconfig
 %
-% resumo em espanhol
-%\begin{resumo}[Resumen]
-%  \SingleSpacing{\MakeUppercase{\citarautor}~{\bfseries \rmfamily \fontsize{12}{12} \imprimirtitulo}. \imprimirdata. \thelastpage p. \tipotrabalhocurto~(\cursorealizado) -- \ppg, \imprimirinstituicao, \imprimirlocal.}
-% \begin{otherlanguage*}{spanish}
-%   Este es el resumen en español.
+% Imprimir referencias
+\bibliography{./bib/referencias}
 %
-%   \textbf{Palabras clave}: latex. abntex. publicación de textos.
-% \end{otherlanguage*}
-%\end{resumo}
-% ---
-
-% inserir lista de ilustrações
-% ---
-\renewcommand{\listfigurename}{Lista de Figuras} % #modificado: Renomeia de Lista de Ilustrações para Lista de Figuras. Colocando em ppgec.cls não funcionou.
-% ---
-\pdfbookmark[0]{\listfigurename}{lof}
-\listoffigures*
-\cleardoublepage
-% ---
-
-% ---
-% inserir lista de quadros
-% ---
-%\pdfbookmark[0]{\listofquadrosname}{loq}
-%\listofquadros*
-%\cleardoublepage
-% ---
-
-% ---
-% inserir lista de tabelas
-% ---
-\pdfbookmark[0]{\listtablename}{lot}
-\listoftables*
-\cleardoublepage
-% ---
-
-% ---
-% inserir lista de abreviaturas e siglas
-% ---
-\begin{siglas}
-  \item[ABNT] Associação Brasileira de Normas Técnicas
-  \item[abnTeX] ABsurdas Normas para TeX
-\end{siglas}
-% ---
-
-% ---
-% inserir lista de símbolos
-% ---
-\begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
-\end{simbolos}
-% ---
-
-% ---
-% inserir o sumario
-% ---
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents*
-\cleardoublepage
-% ---
-
-% ----------------------------------------------------------
-% ELEMENTOS TEXTUAIS
-% ----------------------------------------------------------
-\textual
-\pagestyle{fancy}
-\fancypagestyle{plain}{\fancyhf{}}
-\fancyhf{}
-\fancyhead[RO,LE]{\footnotesize\thepage}
-\fancyfoot{}
-\fancyfoot[CO]{\small{\imprimirautor~(\emailautor) \imprimirtipotrabalho. \abrevppg/\abrevinstituicao. \imprimirdata.}}
-\fancyfoot[CE]{\small{\imprimirtitulo}}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{.4pt}
-\captionsetup{width=0.75\textwidth} % incluido por Augusto B. Borges - padroniza largura da legenda das figuras e tabelas
-
-% ----------------------------------------------------------
-\include{cap1}             % Introdução
-% ----------------------------------------------------------
-% ----------------------------------------------------------
-\include{cap2}             % Capítulo 2: Nome
-% ----------------------------------------------------------
-% ----------------------------------------------------------
-\include{cap3}             % Capítulo 3: Nome
-% ----------------------------------------------------------
-% ----------------------------------------------------------
-\include{cap4}             % Capítulo 4: Nome
-% ----------------------------------------------------------
-
-% ----------------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS
-% ----------------------------------------------------------
-\postextual
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-\bibliography{referencias}
-% ----------------------------------------------------------
-% Glossário
-% ----------------------------------------------------------
+% Imprimir apêndices
+\imprimircapaapendices
+\include{./pos/apeA}	
+\include{./pos/apeB}
+\include{./pos/apeC}
 %
-% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+% Imprimir anexos
+\imprimircapaanexos
+\include{./pos/aneA}	
+\include{./pos/aneB}
+\include{./pos/aneC}
 %
-%\glossary
-
-% ----------------------------------------------------------
-% Apêndices
-% ----------------------------------------------------------
-
-% ---
-% Inicia os apêndices
-% ---
-%\begin{apendicesenv}
-
-% Imprime uma página indicando o início dos apêndices
-%\partapendices
-
-% ----------------------------------------------------------
-%\chapter{Quisque libero justo}
-% ----------------------------------------------------------
-
-%\lipsum[50]
-
-% ----------------------------------------------------------
-%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
-%ac pretium ante justo a nulla curabitur tristique arcu eu metus}
-% ----------------------------------------------------------
-%\lipsum[55-57]
-
-%\end{apendicesenv}
-% ---
-
-
-% ----------------------------------------------------------
-% Anexos
-% ----------------------------------------------------------
-
-% ---
-% Inicia os anexos
-% ---
-\begin{anexosenv}
-
-% Imprime uma página indicando o início dos anexos
-\partanexos
-
-\includepdf[pages={1-4}]{latex_symbols}
-
-% ---
-%\chapter{Morbi ultrices rutrum lorem.}
-% ---
-%\lipsum[30]
-
-% ---
-%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
-%parturient montes nascetur ridiculus mus}
-% ---
-
-%\lipsum[31]
-
-% ---
-%\chapter{Fusce facilisis lacinia dui}
-% ---
-
-%\lipsum[32]
-
-\end{anexosenv}
-
-%---------------------------------------------------------------------
-% INDICE REMISSIVO
-%---------------------------------------------------------------------
-% \phantompart
-% \printindex
-%---------------------------------------------------------------------
-
+% Imprimir anexos em pdf: \imprimiranexopdf{nome do arquivo}{título do anexo}{primeirapagina}{proximaspaginas}
+\imprimiranexopdf{./pos/latex_symbols}{Anexo D - Símbolos matemáticos}{1}{2-}
+%
+%
 \end{document}
+

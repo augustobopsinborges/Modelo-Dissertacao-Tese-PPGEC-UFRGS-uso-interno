@@ -1,0 +1,159 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	cap#.tex 
+%  -----------
+%
+%	Neste arquivo você escreve o capítulo. Deve sempre iniciar com o ambiente
+%	\chapter{Nome do Capitulo}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\chapter{Iniciando com o \LaTeX}
+
+Nesse capítulo se dará um breve histórico e introdução sobre o que é o \TeX~e \LaTeX.
+
+% ---
+\section{O que é \TeX?}
+% ---
+
+O \TeX~é um programa de processamento de texto criado por Donald E. Knuth \cite{Knuth1984} a pedido da \textbf{AMS}\footnote{American Mathematical Society} orientado à composição, impressão de textos e fórmulas matemáticas. Esse programa interpreta cerca de 600 comandos que controlam a construção do layout de uma página (fonte de letra a usar, espaçamento entre linhas, organização de equações, entre outros aspectos referente ao texto final impresso). Para as fontes, Knuth aproveitou a experiência de antigos tipógrafos e desenvolveu o programa \texttt{METAFONT} para criá-las. Por isso, às vezes, percebe-se uma incrível semelhança entre livros antigos e os tipos de fontes utilizados pelo \TeX.
+
+Pode se considerar o \TeX~ como sendo um compilador para textos científicos de alta qualidade. Contudo, sua aprendizagem e utilização não é tão fácil para qualquer usuário de computador. Felizmente, quase que simultaneamente foi desenvolvido o \LaTeX para simplificar a utilização do \TeX.
+
+O desenvolvimento do \TeX~ se estendeu de 1977 a 1986, quando o mesmo foi posto de forma gratuita para ser utilizado. Atualmente o \TeX~ e o \texttt{METAFONT} não estão mais em desenvolvimentos e, segundo seu autor\footnote{Donald E. Kenuth. The Future of \TeX and Metafont. TUGboat, 11(4):489, novembro de 1990}, não serão realizados mais mudanças futuras, exceto correções de erros na programação.
+
+% ---
+\section{O que é \LaTeX?}
+% ---
+
+O \LaTeX, é um programa desenvolvido por Leslie Lamport \cite{1994lamport} que consiste em interpretar um conjunto de macros (que são instruções ou comandos) para simplificar o uso da linguagem \TeX. A utilização desses comandos permitem o autor compor e configurar seu documento de modo mais simples utilizando estruturas pré definidas.
+
+Ao contrário do \TeX~ o desenvolvimento do \LaTeX~é crescente e possui diversos pacotes adicionais para realizar uma imensa quantidade de tarefas diferentes no processamento de textos.
+
+O arquivo de entrada do \LaTeX~ está no formato ASCII e pode ser criado com qualquer editor de texto, como por exemplo o Bloco de Notas do Windows. Esse arquivo possuí tanto o texto que será impresso quanto as instruções que o \LaTeX~ interpretará para compor o texto no layout da página. Um projeto em \LaTeX~ pode conter diversos arquivos de entrada.
+
+Existem vários editores de \LaTeX~ que servem de ambiente para escrever os arquivos de entrada. Esses programas possuem corretor ortográfico interativo, análise lexical (contagem de palavras e frases), realce de sintaxe, chamam e configuram o compilador, apresentam janelas de aviso e erros de compilação, permitem visualizar o documento impresso e possuem acesso rápido a comandos \LaTeX~ para fazer tabelas, fórmulas e etc. São exemplos de editores o TeXstudio, LyX, TeXmaker e OverLeaf. Para comparações entre diversos editores de \LaTeX~ veja \citeonline{wiki:2020}.
+
+% ---
+\section{Diferença entre processadores de texto Visuais e Lógicos}
+% ---
+
+Os programas que processam textos podem ser dividido em duas categorias:
+
+\begin{alineas}
+	
+	\item Visuais (WYSIWYG): o texto que você digita aparece na tela da mesma forma que vai ser impresso. Isso é conhecido como WHAT YOU SEE IS WHAT YOU GET. Um exemplo é o Microsoft Word; 
+
+	\item Lógico: o texto é digitado em um arquivo fonte junto com instruções de compilação. O arquivo é então compilado e gera uma saída que pode ser visualizada. Exemplo: HTML e \LaTeX.
+	
+\end{alineas}
+
+Os processadores Visuais são bastante intuitivos e produzem documentos esteticamente bonitos. Porém pode ocorrer corrupção do arquivo, incompatibilidade na leitura entre versões diferentes do programa e problemas de configuração da formatação, uma vez que esta depende de diversos parâmetros do programa que podem variar sem muito controle do usuário.
+
+Os processadores Lógicos, apesar de serem menos intuitivos para um usuário acostumado com o sistema Visual, possuem menos chances de corromper o arquivo e maior estabilidade na formatação, uma vez que é necessário indicar a estrutura lógica da mesma no texto. Além disso, pode-se citar algumas vantagens do \LaTeX:
+
+\begin{alineas}
+	
+	\item é altamente portável e grátis. O sistema funciona em qualquer plataforma computacional;
+		
+	\item existem pacotes adicionais sem custo algum para muitas tarefas tipográficas que não estão inclusa no pacote do \LaTeX~básico;
+	
+	\item o usuário só precisa introduzir instruções simples para indicar a estrutura do documento e sua formatação. Os textos ficam bem estruturados no arquivo de entrada;
+
+	\item estruturas como notas de rodapé, bibliografias, índices, tabelas e outras podem ser produzidas sem grande esforço;
+	
+	\item existem comunidades de dúvidas e desenvolvimento de pacotes por toda a internet. Uma dúvida que você tenha, certamente alguém já teve;
+	
+	\item é possível criar um conjunto de macros ou mesmo utilizar e customizar pacotes que contém uma série de macros criadas pela comunidade para configuração da formatação, como a classe Abn\TeX2 e o pacote abntex2cite;
+	
+\end{alineas}
+
+Como uma das desvantagens pode-se citar que produzir um design específico de um documento que não esteja entre os pré-definidos pode ser uma tarefa de criação que leva tempo.
+
+A mecânica do \LaTeX~ é aquela em que o autor escreve os arquivos de entrada *.tex (geralmente em um editor de \LaTeX) contendo o texto e os comandos de formatação na linguagem \LaTeX~ e então executa o compilador (um programa) que, seguindo as regras dessa linguagem, cria um arquivo de impressão formatado (*.pdf, *.dvi) pronto para ser visualizado.
+
+% ---
+\section{Instalando \LaTeX~ no sistema Windows}
+% ---
+
+Para utilizar o \LaTeX~no Windows você precisa primeiramente instalar o MiKTeX. O MiKTeX é uma distribuição multiplataforma que contém o compilador do \LaTeX, alguns pacotes básicos e outras ferramentas auxiliares (como um gerenciador de pacotes e um editor de \LaTeX~ chamado TeXworks). Posteriormente, é aconselhado instalar um editor de \LaTeX~ com mais funcionalidades, como o TeXstudio.
+
+Para instalar o MiKTeX você deverá:
+
+\begin{alineas}
+	
+	\item baixar o instalador do MiKTeX básico no site \url{https://miktex.org/download} correspondente ao seu sistema Windows 64-bit ou 32-bit;
+	
+	\item rode o instalador com privilégio de administrador;
+	
+	\item selecione instalar para todos os usuários e escolha a pasta. Recomenda-se manter o local sugerido;
+	
+	\item escolha as opções solicitadas, recomenda-se manter sugestão de folha \textbf{A4} para o tipo de papel e \textbf{Ask me First} para instalar os pacotes faltantes;
+	
+	\item clique em \textbf{start} para iniciar a instalação;
+	
+	\item após terminar feche o instalador;
+	
+\end{alineas}
+
+Para instalar o TeXstudio você deverá:
+
+\begin{alineas}
+	
+	\item baixar o instalador do TeXstudio no site \url{https://www.texstudio.org/} correspondente ao seu sistema Windows 64-bit ou 32-bit;
+	
+	\item rode o instalador com privilégio de administrador e escolha a língua de preferência;
+	
+	\item escolha a pasta de instalação. Recomenda-se manter o local sugerido;
+	
+	\item selecione criar ícones no desktop e na barra de acesso rápido;
+	
+	\item clique em \textbf{avançar} para iniciar a instalação;
+	
+	\item após terminar feche o instalador;
+	
+\end{alineas}
+
+% ---
+\section{Instalando \LaTeX~ em outros sistemas operacionais}
+% ---
+
+A instalação do \LaTeX~ em outros sistemas (Linux e Mac) segue passos equivalentes ao da seção anterior. Tanto o TeXstudio quanto o MikTeX possuem versões para essas outras plataformas. Contudo, verifique se todos os pacotes requeridos pelo arquivo ppgec.cls estão baixados. Caso não estejam, entre no MikTeX e baixe-os.
+
+% ---
+\section{Alguns tutoriais úteis}
+% ---
+
+Há muitos tutorias sobre \LaTeX~ disponíveis na internet. Abaixo segue a lista de alguns links que você pode achar útil:
+
+\begin{alineas}
+	
+	\item curso básico sobre LaTeX no TeXstudio:\\ \url{https://youtube.com/playlist?list=PLTCY9jGgE91dFJwOP4wPvwLdyNj2Bch0D};
+	
+	\item curso básico ao avançado sobre OverLeaf:\\ \url{https://youtube.com/playlist?list=PLF6ZF9NW0WmqUAgtkYlQmCDHP6H_bYwGk};
+	
+	\item slides de um curso básico de \LaTeX~ do Alcemir Rodrigues Santos da UFBA:\\ \url{https://pt.slideshare.net/alcemirsantos/erbase-2015-curso-bsico-de-latex}
+	
+	\item site para formatar tabela e gerar código em \LaTeX:\\ \url{https://www.tablesgenerator.com/};
+	
+	\item site para gerar equações em \LaTeX:\\  \url{https://www.codecogs.com/latex/eqneditor.php?lang=pt-br};
+	
+	\item como obter uma bibliografia e colocar no seu trabalho:\\ \url{http://XXXXX};
+	
+\end{alineas}
+
+
+% ---
+\section{Sobre o modelo PPGEC, organização dos arquivos e utilização}
+% ---
+\begin{alineas}
+
+	\item para baixar o modelo PPGEC: \\ \url{http://www.XXXXX}.
+
+	\item organização dos arquivos e utilização do modelo PPGEC:\\ \url{https://XXXXX};
+
+	\item modelo PPGEC com o Overleaf:\\ \url{https://www.youtube.com/watch?v=wK4mSMzB6KQ&t=184s};
+	
+\end{alineas}
+
+
