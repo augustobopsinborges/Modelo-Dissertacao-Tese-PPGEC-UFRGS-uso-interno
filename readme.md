@@ -40,3 +40,4 @@ Esse modelo foi desenvolvido pelos colegas:
 
 Você pode contribuir com sugestões e relatando os Bugs a qualquer um dos desenvolvedores. Se você faz uso do Github pode também trabalhar sobre uma cópia desse projeto.
 
+O template em *.docx também está disponível em arquivo compactado Templates_Word.rar
