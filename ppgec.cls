@@ -1085,7 +1085,7 @@
 \begin{center}
   \begin{center}
     { \fontsize{16}{16} \bfseries
-      \ABNTEXchapterfont\LARGE\rmfamily\imprimirtitulo
+      \ABNTEXchapterfont\LARGE\rmfamily\MakeUppercase{\imprimirtitulo}
     }
   \end{center}
 

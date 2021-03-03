@@ -3,11 +3,45 @@
 %	simbolo.tex 
 %  -----------
 %
-%	Neste arquivo você escreve os simbolos do seu trabalho na seguinte forma:
+%	Neste arquivo você escreve os simbolos do seu trabalho
 %
-%	\item[simbolo] O que siginifica o simbolo
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Criando simbolos com o \newcommand
+%	-----------------------------------
+%
+%	Você pode criar comandos para simbolos para simplificar a notação matemática
+%	ao longo do texto. Aqui tem alguns exmeplos:
+%
+\newcommand{\sen}{sen}
+\newcommand{\trace}{tr}
+\newcommand{\grad}{grad}
+\newcommand{\diverg}{div}
+\newcommand{\gravidade}{\texttt{g}}
+\newcommand{\vetorn}{\underline{\texttt{n}}}
+\newcommand{\desloc}{\underline{\xi}}
+\newcommand{\tensorsigma}{\underline{\underline{\sigma}}}
+\newcommand{\tensorSigma}{\underline{\underline{\Sigma}}}
+\newcommand{\tensorepsilon}{\underline{\underline{\varepsilon}}}
+\newcommand{\tensorBiot}{\underline{\underline{\textit{B}}}}
+\newcommand{\tensorpermeabilidademicro}{\underline{\underline{\textit{k}}}^{\prime}}
+\newcommand{\tensorpermeabilidadehom}{\underline{\underline{\textit{K}}}^{\prime \tiny{\mbox{hom}}}}
+\newcommand{\energiamedia}{\left\langle\textit{U}\right\rangle}
+\newcommand{\defmedia}{\langle\underline{\underline{\varepsilon}}\rangle}
+\newcommand{\tensaomedia}{\langle\underline{\underline{\sigma}}\rangle}
+\newcommand{\tensorC}{\mathbb{C}}
+\newcommand{\identidadequarta}{\mathbb{I}}
+\newcommand{\volume}{\left|\Omega\right|}
+\newcommand{\volumeinicial}{\left|\Omega_{0} \right|}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Colocando a lista de simbolos
+%	------------------------------
+%
+%	A sintaxe para adicionar o simbolo na listagem é:
+%	\item[simbolo] O que siginifica o simbolo
 %
 %
 % Alguns exemplos de simbolos
@@ -16,7 +50,7 @@
 \item[$ \zeta $] 						Letra grega minúscula zeta
 \item[$ \in $] 							Pertence
 %
-% Simbolos definidos pelo usuário (ver pacotes_macros.tex)
+% Simbolos definidos pelo usuário (ver seção acima)
 \item[$ \sen $] 						Operador seno
 \item[$ \trace $] 						Operador traço
 \item[$ \grad $] 						Operador gradiente
