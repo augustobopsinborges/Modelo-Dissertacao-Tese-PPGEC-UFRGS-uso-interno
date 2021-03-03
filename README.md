@@ -13,11 +13,11 @@ Este é o modelo para teses e dissertações do PPGEC/UFRGS em LaTeX. Este model
  
 Dentro das pastas tem-se os seguintes arquivos:
 
-- **bib\referencia.bib** - o arquivo de referências bibliográficas;
-- **chap\ *.tex** - arquivos referentes aos capítulos do documento;
-- **fig\ (*.pdf, *.jpg, *.png...)** - arquivos referentes as figuras do documento;
-- **pre\ *.tex** - arquivos referentes aos elementos pré-textuais;
-- **pro\ *.tex** - arquivos referentes aos elementos pós-textuais.
+- bib\referencia.bib - o arquivo de referências bibliográficas;
+- chap\ *.tex - arquivos referentes aos capítulos do documento;
+- fig\ (*.pdf, *.jpg, *.png...) - arquivos referentes as figuras do documento;
+- pre\ *.tex - arquivos referentes aos elementos pré-textuais;
+- pro\ *.tex - arquivos referentes aos elementos pós-textuais.
 
 No interior de cada arquivo tem um cabeçalho com breves explicações de utilização.
 
