@@ -147,7 +147,7 @@
 %
 % Carregando pacotes para a classe utilizar (https://www.ctan.org/)
 \RequirePackage[brazilian,hyperpageref]{backref}									% faz hiper-referencias da bibliografia
-\RequirePackage[alf,abnt-emphasize=bf, abnt-repeated-author-omit=yes]{abntex2cite}	% citações padrão ABNT do projeto abntex2
+\RequirePackage[alf,abnt-emphasize=bf,abnt-repeated-author-omit=yes, abnt-etal-list=0]{abntex2cite}	% citações padrão ABNT do projeto abntex2
 \RequirePackage{amssymb,amsmath,amsfonts,textcomp,bm}								% recursos para matemática
 \RequirePackage{array}				% elementos extras para formatação de tabelas
 \RequirePackage{booktabs}			% melhora a qualidade das tabelas com comandos extras
