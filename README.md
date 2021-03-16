@@ -1,6 +1,6 @@
 # Modelo LaTeX PPGEC/UFRGS v2.2
 
-Este é o modelo para teses e dissertações do PPGEC/UFRGS em $\LaTeX$. Este modelo tem os seguintes arquivos na sua raiz:
+Este é o modelo para teses e dissertações do PPGEC/UFRGS em LaTeX. Este modelo tem os seguintes arquivos na sua raiz:
 
   - **main.tex** - arquivo principal que gerencia o modelo inteiro;
   - **dados.tex** - arquivo onde o aluno coloca seus dados;
@@ -31,7 +31,7 @@ A classe ppgec.cls possui três opções que personalizam o documento:
 
 ## O que contém o documento exemplo?
 
-Esse documento possui capitulos que ajudarão você a entender a filosofia do modelo e os principais comandos utilizados. Após o Capítulo 1, introdutório, o Capítulo 2 apresenta a filosofia $\LaTeX$, um mini tutorial para instalação dos programas necessários para compilar o modelo e alguns links de tutoriais que podem ser úteis. Os capitulos seguintes exemplificam os principais comandos $\LaTeX$ para inserção de citação, figuras, tabelas, referências cruzadas e etc.
+Esse documento possui capitulos que ajudarão você a entender a filosofia do modelo e os principais comandos utilizados. Após o Capítulo 1, introdutório, o Capítulo 2 apresenta a filosofia LaTeX, um mini tutorial para instalação dos programas necessários para compilar o modelo e alguns links de tutoriais que podem ser úteis. Os capitulos seguintes exemplificam os principais comandos LaTeX para inserção de citação, figuras, tabelas, referências cruzadas e etc.
 
 ## Links Úteis
 
