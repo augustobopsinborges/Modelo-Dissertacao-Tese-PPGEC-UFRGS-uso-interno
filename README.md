@@ -37,6 +37,7 @@ Esse documento possuí capitulos que ajudarão você a entender a filosofia do m
 
  - [Video Sobre modelo latex ppgec-ufrgs do canal do Youtube CEMACOM](https://youtu.be/rphNFgaBviU)
  - [Video sobre o TeXstudio do canal do Youtube CEMACOM](https://youtu.be/kAnzGjju8QM)
+ - [Uma não tão pequena introdução ao LaTeX](http://zelmanov.ptep-online.com/ctan/lshort_port.pdf)
 
 ## Desenvolvedores
 
