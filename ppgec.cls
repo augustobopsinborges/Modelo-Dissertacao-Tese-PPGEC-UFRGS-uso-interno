@@ -438,6 +438,7 @@
 	\def\subsectionautorefname{Subseção}
 	\def\subsubsectionautorefname{Subsubseção}
 	\def\figureautorefname{Figura}
+	\def\appendixautorefname{Apêndice}
 	\def\tableautorefname{Tabela}
 	\def\quadroautorefname{Quadro}
 	\def\pageautorefname{Página}
@@ -557,6 +558,7 @@
 	\def\subsectionautorefname{Subsección}
 	\def\subsubsectionautorefname{Subsubsección}
 	\def\figureautorefname{Figura}
+	\def\appendixautorefname{Apéndice}
 	\def\tableautorefname{Tabla}
 	\def\quadroautorefname{Cuadro}
 	\def\pageautorefname{Página}
@@ -670,6 +672,7 @@
 	\def\subsectionautorefname{Subsection}
 	\def\subsubsectionautorefname{Subsubsection}
 	\def\figureautorefname{Figure}
+	\def\appendixautorefname{Appendix}
 	\def\tableautorefname{Table}
 	\def\quadroautorefname{Chart}
 	\def\pageautorefname{Page}	
