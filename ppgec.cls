@@ -65,7 +65,7 @@
 %			doutorado 	: opção para tese de doutorado
 %			mestrado 	: opção para dissertação de mestrado
 %			qdoutorado 	: opção para qualificação de doutorado
-%			qmestrado 	: opção para qualificação de mestrado
+%			qmestrado 	: opção para semináro de mestrado
 %
 %		AREA DE CONCENTRAÇÃO
 %			estrutura 	: opção para área de concentração em estrutura
@@ -503,8 +503,8 @@
 		\newcommand{\cursorealizado}{Doutorado em Engenharia}
 		\newcommand{\tituloobtido}{Doutor em Engenharia}
 	\else \if \vardoctype 3
-		\tipotrabalho{Qualificação de Mestrado}
-		\newcommand{\tipotrabalhocurto}{Qualificação}
+		\tipotrabalho{Seminário de Mestrado}
+		\newcommand{\tipotrabalhocurto}{Seminário}
 		\newcommand{\cursorealizado}{Mestrado em Engenharia}
 		\newcommand{\tituloobtido}{Mestre em Engenharia}
 	\fi \fi \fi \fi

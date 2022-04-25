@@ -1,4 +1,4 @@
-# Modelo LaTeX PPGEC/UFRGS v2.2
+# Modelo LaTeX PPGEC/UFRGS v2.3
 
 Este é o modelo para teses e dissertações do PPGEC/UFRGS em LaTeX. Este modelo tem os seguintes arquivos na sua raiz:
 
@@ -73,3 +73,7 @@ Você pode contribuir com sugestões e relatando os Bugs a qualquer um dos desen
 	+ Adicionado exemplo do uso do \newcommand para símbolos e operadores matemáticos no arquivo de simbolos.tex;
 	+ Adicionado o arquivo .gitignore para evitar sincronizar ao GitHub arquivos de compilação;
 	+ Arquivos modificados: ppgec.cls, simbolos.tex, main.tex e pacotes_macros.tex.
+
++ v2.3 (Upload: 25/04/2022)
+
+	+ Corrige "Qualificação de Mestrado" para "Seminário de Mestrado". Para atualizar para esta versão, substitua apenas os arquivos ``ppgec.cls`` e ``main.tex`` em relação àqueles da versão 2.2. No arquivo ``main.tex``, preserve o seu código de elementos textuais até o final do arquivo.
