@@ -43,7 +43,7 @@ Esse documento possui capitulos que ajudarão você a entender a filosofia do mo
 
 Esse modelo foi desenvolvido pelos colegas:
 
-- Augusto Bopsin Borges (augusto.borges@ufrgs.br)
+- Augusto Bopsin Borges (augustobopsinborges@gmail.com)
 - Rodrigo Escolante Pereira (rodrigoescolante@gmail.com)
 - Felipe Pinto da Motta Quevedo (00152604@ufrgs.br)
 
